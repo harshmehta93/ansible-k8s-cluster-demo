@@ -65,16 +65,21 @@ This project demonstrates how Kubernetes cluster can be created on any host usin
 - Following Ansible playbooks will be executed by **install.sh** in order to setup the Kubernetes cluster.
 1. Install kubectl
     - Path: ansible/install-kubectl.yml
+    - Role: ansible/roles/kubectl-install
     - Description: This playbook is used to install kubectl on host machine (kubectl is a CLI for running commands against Kubernetes clusters).
 2. Install kops
     - Path: ansible/install-kops.yml
+    - Role: ansible/roles/kops-install
     - Description: This playbook is used to install kops which is responsible to create the cluster.
 3. Create Kubernetes cluster
     - Path: ansible/create-kubernetes-cluster.yml
+    - Role: ansible/roles/create-cluster
     - Description: This playbook is used to create the Kubernetes cluster on a provided host machine.
 4. Install add-ons
     - Path: ansible/install-addons.yml
+    - Role: ansible/roles/dashboard, ansible/roles/heapster
     - Description: This playbook is used to install different Kubernetes add-ons like dashboard (UI), heapster (to gather cluster related health metrics) etc.
 5. Validate kops
     - Path: ansible/validate-kops.yml
+    - Role: ansible/roles/kops-validate
     - Description: This playbook is used to validate kops and to validate whether Kubernetes cluster is up and running or not.
