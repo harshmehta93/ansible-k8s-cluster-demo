@@ -1,0 +1,6 @@
+--- 
+
+- include_vars: 'config.json'
+
+- name: "Configure the cluster"
+  shell: "kops create cluster {{kubernetes_config.k8s_cluster_name}} --state s3://{{cloud_config.bucket_name}} --cloud-labels \"env={{environment}}\" --cloud {{cloud_config.provider}} --dns {{vpc_config.dns.type}} --dns-zone {{zone_config.id}} --master-count {{kubernetes_config.nodes.master.count}} --master-size {{kubernetes_config.nodes.master.size}} --master-zones {{kubernetes_config.nodes.master.zones}} --networking {{kubernetes_config.networking}} --node-count {{kubernetes_config.nodes.node.count}} --node-size {{kubernetes_config.nodes.node.size}} --zones {{kubernetes_config.nodes.node.zones}} --vpc {{vpc_config.id}} --ssh-public-key {{public_key_path}}"

@@ -1,0 +1,9 @@
+---
+
+#Setup Kubernetes Cluster...
+
+- hosts: localhost
+  gather_facts: no
+  connection: local
+  roles:
+    - create-cluster

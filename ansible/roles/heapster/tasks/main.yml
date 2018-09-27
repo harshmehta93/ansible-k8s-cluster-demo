@@ -1,0 +1,6 @@
+---
+
+# Installing Heapster...
+
+- name: Install Heapster
+  command: "kubectl create -f {{heapster_url}}"

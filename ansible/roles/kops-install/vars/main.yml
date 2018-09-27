@@ -1,0 +1,4 @@
+---
+
+kops_version: "1.9.1"
+kops_path: "https://github.com/kubernetes/kops/releases/download/{{ kops_version }}/kops-linux-amd64"

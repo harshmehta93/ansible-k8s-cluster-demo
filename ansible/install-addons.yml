@@ -1,0 +1,11 @@
+---
+
+#Setup Kubernetes Add-Ons...
+
+- hosts: all
+  gather_facts: no
+  become: yes
+  become_method: enable
+  roles:
+    - dashboard
+    - heapster

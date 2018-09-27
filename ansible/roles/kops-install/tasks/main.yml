@@ -1,0 +1,9 @@
+---
+- name: Downloading kops
+  shell: curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+
+- name: Making kops executable
+  shell: chmod +x kops-linux-amd64
+
+- name: Moving kops to bin
+  shell: sudo mv kops-linux-amd64 /usr/local/bin/kops

@@ -1,0 +1,38 @@
+{
+    "cloud_config": {
+        "bucket_name": "<<AWS S3 bucket-name to store K8s cluster state>>",
+        "provider": "<<cloud-provider>>"
+    },
+    "kubernetes_config": {
+        "networking": "<<networking-strategy>>",
+        "nodes": {
+            "node": {
+                "max_size": "<<maximum number of nodes allowed>>",
+                "size": "<<AWS instance type for node>>",
+                "min_size": "<<minimum number of nodes available>>",
+                "count": "<<node count>>",
+                "zones": "<<AZs of node>>"
+            },
+            "master": {
+                "size": "<<AWS instance type of master node>>",
+                "count": "<<master node count>>",
+                "zones": "<<AZs of master>>"
+            }
+        },
+        "k8s_cluster_name": "<<K8s cluster name>>"
+    },
+    "environment": "<<environment to create seperate configuration for each env type>>",
+    "vpc_config": {
+        "id": "<<vpc-id>>",
+        "name": "<<vpc-name>>",
+        "cidr": "<<vpc-cidr>>",
+        "map_public_ip_on_launch": "<<true/false>>",
+        "dns": {
+            "enable_dns_hostnames": "<<true/false>>",
+            "name": "<<dns-name>>",
+            "type": "<<dns-type>>",
+            "enable_dns_support": "<<true/false>>"
+        }
+    },
+    "public_key_path": "<<public-key-path>>"
+}

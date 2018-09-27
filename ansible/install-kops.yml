@@ -1,0 +1,10 @@
+---
+
+#Installing Kops...
+
+- hosts: all
+  gather_facts: no
+  become: yes
+  become_method: enable
+  roles:
+    - kops-install

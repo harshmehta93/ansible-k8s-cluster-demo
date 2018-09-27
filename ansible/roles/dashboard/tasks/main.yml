@@ -1,0 +1,19 @@
+---
+
+# Installing Kubernetes Dashboard...
+- name: Deleting exsting dashboard resources
+  shell: "kubectl delete -f {{kubernetes_dashboard_url}}"
+  ignore_errors: yes
+
+- name: Launch Kubernetes dashboard service
+  shell: "kubectl create -f {{kubernetes_dashboard_url}}"
+
+- name: Giving proper access for dashboard
+  shell: "kubectl create -f ../../ansible/files/kube-dashboard-access.yaml"
+
+- name: Retrieving dashboard credentials
+  shell: "kubectl config view"
+  register: dashboard_config
+
+- debug:
+    var: dashboard_config

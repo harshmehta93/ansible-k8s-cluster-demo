@@ -1,0 +1,13 @@
+---
+
+- name: "Move kube config"
+  shell: "sudo mv /home/admin/config ~/.kube/"
+
+- name: "kops validate"
+  shell: "kops validate cluster {{name}} --state={{state}}"
+  retries: 5
+  delay: 5
+  register: kops_validate
+  until: kops_validate.rc == 0
+
+- debug: msg="{{ kops_validate.stdout }}"
