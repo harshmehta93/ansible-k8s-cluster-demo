@@ -84,7 +84,7 @@ This project demonstrates how Kubernetes cluster can be created on any host usin
     - Role: ansible/roles/kops-validate
     - Description: This playbook is used to validate kops and to validate whether Kubernetes cluster is up and running or not.
 
-- To setup the Kubernetes command, execute following command:
+- To setup the Kubernetes cluster on the host machine, please execute following commands:
 ```
 sudo chmod 755 install.sh
 ./install.sh
